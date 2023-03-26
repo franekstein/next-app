@@ -4,10 +4,8 @@ import { Main } from "@/components/Main/Main";
 import { Page } from "@/components/Page/Page";
 import { PageDescription } from "@/components/PageDescription/PageDescription";
 import { Pagination } from "@/components/Pagination/Pagination";
-import { Product } from "@/components/Product/Product";
 import { ProductList } from "@/components/ProductList/ProductList";
 import { InferGetStaticPropsType } from "next";
-import Link from "next/link";
 import { useQuery } from "react-query";
 
 export interface ProductEntity {
@@ -44,7 +42,7 @@ const ProductsPage = ({
             description="Trillion paroxysm of global death cosmic ocean from which we spring colonies Cambrian explosion. Vanquish the impossible gathered by gravity a very small stage in a vast cosmic arena gathered by gravity emerged into consciousness emerged into consciousness? Great turbulent clouds emerged into consciousness rich in mystery astonishment extraordinary claims require extraordinary evidence citizens of distant epochs? "
           />
           <ProductList data={products} />
-          <Pagination />
+          <Pagination hasNext={true} hasPrev={false} />
         </section>
       </Main>
       <Footer />

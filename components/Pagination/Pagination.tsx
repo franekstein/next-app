@@ -1,6 +1,5 @@
 import { ChevronLeftIcon } from "@/icons/ChevronLeftIcon";
 import { ChevronRightIcon } from "@/icons/ChevronRightIcon";
-import { useState } from "react";
 import { PaginationMobile } from "./PaginationMobile";
 import { PaginationNext } from "./PaginationNext";
 import { PaginationPrev } from "./PaginationPrev";
