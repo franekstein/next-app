@@ -1,25 +1,23 @@
-import { Footer } from "@/components/Footer";
-import { Main } from "@/components/Main";
-import { Header } from "@/components/Header";
-import { Product } from "@/components/Product";
-
-const data = {
-  name: 'Small Headphones',
-  thumbnailUrl: "https://images.unsplash.com/photo-1592921870789-04563d55041c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-  thumbnailAlt: "Small Headphones image",
-  description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis, quia soluta quisquam voluptatem nemo.`,
-  rating: 4.5,
-};
+import { Footer } from "@/components/Footer/Footer";
+import { Main } from "@/components/Main/Main";
+import { Header } from "@/components/Header/Header";
+import { Page } from "@/components/Page/Page";
+import { PageDescription } from "@/components/PageDescription/PageDescription";
 
 const Home = () => {
   return (
-    <div className="flex flex-col bg-white min-h-screen">
+    <Page>
       <Header />
       <Main>
-        <Product data={data} />
+        <PageDescription
+          header="Something incredible"
+          subheader="Realm of the galaxies"
+          description="Trillion paroxysm of global death cosmic ocean from which we spring colonies Cambrian explosion. Vanquish the impossible gathered by gravity a very small stage in a vast cosmic arena gathered by gravity emerged into consciousness emerged into consciousness? Great turbulent clouds emerged into consciousness rich in mystery astonishment extraordinary claims require extraordinary evidence citizens of distant epochs? "
+          link={{ href: "/products", title: "Products" }}
+        />
       </Main>
       <Footer />
-    </div>
+    </Page>
   );
 };
 
