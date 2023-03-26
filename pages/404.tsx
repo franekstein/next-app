@@ -22,7 +22,7 @@ export default function Custom404() {
             We can&apos;t find that page.
           </p>
 
-          <Button onClick={goBack}>Take me back!</Button>
+          <Button variant="primary" onClick={goBack}>Take me back!</Button>
         </div>
       </div>
     </Page>

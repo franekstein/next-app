@@ -1,7 +1,6 @@
 import { ChevronRightIcon } from "@/icons/ChevronRightIcon";
 import clsx from "clsx";
 import Link from "next/link";
-import { Button } from "../Button/Button";
 
 export interface PaginationNextProps {
   href: string;
