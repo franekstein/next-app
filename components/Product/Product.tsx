@@ -1,4 +1,4 @@
-import { ProductEntity } from "@/pages/products";
+import { ProductEntity } from "@/pages/products/csr";
 import Image from "next/image";
 import { Rating } from "../Rating/Rating";
 
@@ -23,10 +23,10 @@ export const Product = ({ data }: ProductProps) => {
           {title}
         </h3>
 
-        <p className="mt-2 flex justify-between items-center">
+        <div className="mt-2 flex justify-between items-center">
           <span className="tracking-wider text-gray-900">${price}</span>
           <Rating rating={rating.rate} />
-        </p>
+        </div>
       </div>
     </div>
   );

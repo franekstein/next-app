@@ -1,11 +1,12 @@
 import { Footer } from "@/components/Footer/Footer";
 import { Header } from "@/components/Header/Header";
+import { Loader } from "@/components/Loader/Loader";
 import { Main } from "@/components/Main/Main";
 import { Page } from "@/components/Page/Page";
 import { PageDescription } from "@/components/PageDescription/PageDescription";
 import { Pagination } from "@/components/Pagination/Pagination";
 import { ProductList } from "@/components/ProductList/ProductList";
-import { InferGetStaticPropsType } from "next";
+import { useRouter } from "next/router";
 import { useQuery } from "react-query";
 
 export interface ProductEntity {
@@ -22,15 +23,46 @@ export interface ProductEntity {
   longDescription: string;
 }
 
-const getProducts = async (): Promise<ProductEntity[]> => {
-  const data = await fetch("https://naszsklep-api.vercel.app/api/products");
+const getParam = (
+  param: string | string[] | undefined,
+  defaultValue: number
+) => {
+  if (!param || Array.isArray(param)) {
+    return defaultValue;
+  }
+  const value = parseInt(param);
+  return isNaN(value) ? defaultValue : value;
+};
+
+const getProducts = async (
+  take: number,
+  offset: number
+): Promise<ProductEntity[]> => {
+  const data = await fetch(
+    `https://naszsklep-api.vercel.app/api/products?offset=${offset}&take=${take}`
+  );
   return data.json();
 };
 
-const ProductsPage = ({
-  data,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { data: products = [] } = useQuery("products", getProducts);
+const ProductsPage = () => {
+  const {
+    query: { take, offset },
+  } = useRouter();
+
+  const parsedOffset = getParam(offset, 0);
+  const parsedTake = getParam(take, 25);
+
+  const { data: products = [], isLoading } = useQuery(
+    ["products", take, offset],
+    () => getProducts(parsedTake + 1, parsedOffset)
+  );
+
+  const hasPrev = parsedOffset !== 0;
+  const hasNext = products.length === parsedTake + 1;
+
+  const filteredProducts =
+    products.length === parsedTake + 1 ? products.slice(0, -1) : products;
+
   return (
     <Page>
       <Header />
@@ -41,24 +73,23 @@ const ProductsPage = ({
             subheader="Realm of the galaxies"
             description="Trillion paroxysm of global death cosmic ocean from which we spring colonies Cambrian explosion. Vanquish the impossible gathered by gravity a very small stage in a vast cosmic arena gathered by gravity emerged into consciousness emerged into consciousness? Great turbulent clouds emerged into consciousness rich in mystery astonishment extraordinary claims require extraordinary evidence citizens of distant epochs? "
           />
-          <ProductList data={products} />
-          <Pagination hasNext={true} hasPrev={false} />
+          {isLoading && <Loader />}
+          {products.length > 0 && (
+            <>
+              <ProductList data={filteredProducts} />
+              <Pagination
+                hasNext={hasNext}
+                hasPrev={hasPrev}
+                take={parsedTake}
+                offset={parsedOffset}
+              />
+            </>
+          )}
         </section>
       </Main>
       <Footer />
     </Page>
   );
-};
-
-export const getStaticProps = async () => {
-  const res = await fetch(`https://fakestoreapi.com/products`);
-  const data: ProductEntity[] = await res.json();
-
-  return {
-    props: {
-      data,
-    },
-  };
 };
 
 export default ProductsPage;

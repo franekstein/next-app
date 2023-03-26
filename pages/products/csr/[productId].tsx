@@ -14,7 +14,6 @@ const ProductPage = ({
       <Header />
       <Main>
         <div className="flex flex-col">
-          <h3>Products</h3>
           {data && <ProductDetails data={data} />}
         </div>
       </Main>
@@ -24,7 +23,7 @@ const ProductPage = ({
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`https://fakestoreapi.com/products`);
+  const res = await fetch(`https://naszsklep-api.vercel.app/api/products`);
   const data: ProductEntity[] = await res.json();
   return {
     paths: data.map(({ id }) => ({ params: { productId: `${id}` } })),
@@ -43,7 +42,7 @@ export const getStaticProps = async ({
   }
 
   const res = await fetch(
-    `https://fakestoreapi.com/products/${params.productId}`
+    `https://naszsklep-api.vercel.app/api/products/${params.productId}`
   );
   const data: ProductEntity = await res.json();
 

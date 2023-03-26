@@ -4,7 +4,8 @@ import { NavigationItem } from "./NavigationItem";
 export const NavigationList = () => {
   const navigation = [
     { title: "Main", href: "/" },
-    { title: "Products", href: "/products" },
+    { title: "Products CSR", href: "/products/csr" },
+    { title: "Products ISR", href: "/products/isr" },
     { title: "About", href: "/about" },
   ];
   const { pathname } = useRouter();

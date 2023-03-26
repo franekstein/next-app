@@ -1,25 +1,27 @@
 import { ChevronRightIcon } from "@/icons/ChevronRightIcon";
+import clsx from "clsx";
+import Link from "next/link";
+import { Button } from "../Button/Button";
 
 export interface PaginationNextProps {
   href: string;
+  onClick?: VoidFunction;
   disabled?: boolean;
 }
 
 export const PaginationNext = ({
   href,
+  onClick,
   disabled = false,
 }: PaginationNextProps) => {
+  const buttonClasses = clsx(
+    "hover:text-indigo-600 flex items-center gap-x-2",
+    { "cursor-not-allowed hover:text-current pointer-events-none opacity-25": disabled }
+  );
   return (
-    <li>
-      <a
-        href={href}
-        className="hover:text-indigo-600 hover:bg-gray-50 px-2 py-3 border border-l-0 rounded-tr-lg rounded-br-lg"
-      >
-        <span className="inline-flex items-center gap-x-2">
-          Next
-          <ChevronRightIcon />
-        </span>
-      </a>
-    </li>
+    <Link onClick={onClick} href={href} className={buttonClasses}>
+      Next
+      <ChevronRightIcon />
+    </Link>
   );
 };

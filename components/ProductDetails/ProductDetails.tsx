@@ -1,5 +1,6 @@
-import { ProductEntity } from "@/pages/products";
+import { ProductEntity } from "@/pages/products/csr";
 import Image from "next/image";
+import { useState } from "react";
 import { Button } from "../Button/Button";
 import { Rating } from "../Rating/Rating";
 
@@ -15,6 +16,7 @@ export const ProductDetails = ({ data }: ProductDetailsProps) => {
     price,
     description,
   } = data;
+  const [quantity, setQuantity] = useState(1);
   return (
     <section>
       <div className="relative mx-auto max-w-screen-xl px-4 py-8">
@@ -90,12 +92,13 @@ export const ProductDetails = ({ data }: ProductDetailsProps) => {
                     type="number"
                     id="quantity"
                     min="1"
-                    value="1"
+                    value={quantity}
+                    onChange={({ target: { valueAsNumber } }) => setQuantity((previousValue) => isNaN(valueAsNumber) ? previousValue : valueAsNumber)}
                     className="w-12 rounded border-gray-200 py-3 text-center text-xs [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
                   />
                 </div>
 
-                <Button type="submit">Add to Cart</Button>
+                <Button variant="primary" type="submit">Add to Cart</Button>
               </div>
             </form>
           </div>

@@ -3,7 +3,7 @@ import { FooterNavigation } from "./FooterNavigation";
 import { FooterSocial } from "./FooterSocial";
 
 export const Footer = () => (
-  <footer className="text-gray-500 bg-white px-4 py-5 max-w-screen-xl mx-auto md:px-8">
+  <footer className="text-gray-500 bg-white px-4 py-6 max-w-screen-xl mx-auto md:px-8">
     <div className="max-w-lg sm:mx-auto sm:text-center">
       <Logo />
       <p className="leading-relaxed mt-2 text-[15px]">

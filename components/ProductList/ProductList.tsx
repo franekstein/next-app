@@ -1,4 +1,4 @@
-import { ProductEntity } from "@/pages/products";
+import { ProductEntity } from "@/pages/products/csr";
 import Link from "next/link";
 import { Product } from "../Product/Product";
 
@@ -13,7 +13,7 @@ export const ProductList = ({ data }: ProductListProps) => {
         const { id } = product;
         return (
           <li key={id}>
-            <Link href={`/products/${id}`}>
+            <Link href={`/products/csr/${id}`}>
               <Product data={product} />
             </Link>
           </li>
