@@ -1,6 +1,6 @@
-import { ProductEntity } from "@/pages/products/csr";
 import Image from "next/image";
 import { Rating } from "../Rating/Rating";
+import { ProductEntity } from "@/model/product";
 
 interface ProductProps {
   data: ProductEntity;

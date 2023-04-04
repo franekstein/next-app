@@ -1,6 +1,6 @@
-import { ProductEntity } from "@/pages/products/csr";
 import Link from "next/link";
 import { Product } from "../Product/Product";
+import { ProductEntity } from "@/model/product";
 
 export interface ProductListProps {
   data: ProductEntity[];

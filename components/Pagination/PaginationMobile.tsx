@@ -1,25 +1,43 @@
+import clsx from "clsx";
 import { PaginationProps } from "./Pagination";
+import Link from "next/link";
 
-export const PaginationMobile = ({ currentPage, total }: PaginationProps) => {
+export const PaginationMobile = ({
+  params,
+  offset,
+  take,
+  disabled,
+  hasNext,
+  hasPrev,
+}: PaginationProps) => {
+  const prevClasses = clsx(
+    "px-4 py-2 border rounded-lg duration-150 hover:bg-gray-50",
+    { "opacity-25": !hasPrev || disabled }
+  );
+
+  const nextClasses = clsx(
+    "px-4 py-2 border rounded-lg duration-150 hover:bg-gray-50",
+    { "opacity-25": !hasNext || disabled }
+  );
+
+  const prevOffset = hasPrev ? offset - take : offset;
+  const prevUrl = params
+    ? `/products?take=${take}&offset=${prevOffset}`
+    : `/products/${take}/${prevOffset}`;
+
+  const nextOffset = hasNext ? offset + take : offset;
+  const nextUrl = params
+    ? `/products?take=${take}&offset=${nextOffset}`
+    : `/products/${take}/${nextOffset}`;
+
   return (
     <div className="flex items-center justify-between text-sm text-gray-600 font-medium sm:hidden">
-      <a
-        href="javascript:void(0)"
-        className="px-4 py-2 border rounded-lg duration-150 hover:bg-gray-50"
-      >
+      <Link href={prevUrl} className={prevClasses}>
         Previous
-      </a>
-      {total && currentPage && (
-        <div className="font-medium">
-          Page {currentPage} of {total}
-        </div>
-      )}
-      <a
-        href="javascript:void(0)"
-        className="px-4 py-2 border rounded-lg duration-150 hover:bg-gray-50"
-      >
+      </Link>
+      <Link href={nextUrl} className={nextClasses}>
         Next
-      </a>
+      </Link>
     </div>
   );
 };

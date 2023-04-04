@@ -1,11 +1,12 @@
 import { useRouter } from "next/router";
 import { NavigationItem } from "./NavigationItem";
+import { PRODUCTS_PER_PAGE } from "@/constants";
 
 export const NavigationList = () => {
   const navigation = [
     { title: "Main", href: "/" },
-    { title: "Products CSR", href: "/products/csr" },
-    { title: "Products ISR", href: "/products/isr" },
+    { title: "Products CSR", href: "/products" },
+    { title: "Products SSG", href: `/products/${PRODUCTS_PER_PAGE}/0` },
     { title: "About", href: "/about" },
   ];
   const { pathname } = useRouter();

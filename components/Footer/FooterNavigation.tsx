@@ -1,10 +1,11 @@
+import { PRODUCTS_PER_PAGE } from "@/constants";
 import Link from "next/link";
 
 export const FooterNavigation = () => {
   const navigation = [
     { title: "Main", href: "/" },
-    { title: "Products CSR", href: "/products/csr" },
-    { title: "Products ISR", href: "/products/isr" },
+    { title: "Products CSR", href: "/products" },
+    { title: "Products SSG", href: `/products/${PRODUCTS_PER_PAGE}/0` },
     { title: "About", href: "/about" },
   ];
   

@@ -3,8 +3,9 @@ import { Header } from "@/components/Header/Header";
 import { Main } from "@/components/Main/Main";
 import { Page } from "@/components/Page/Page";
 import { ProductDetails } from "@/components/ProductDetails/ProductDetails";
+import { API_URL } from "@/constants";
+import { ProductEntity } from "@/model/product";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
-import { ProductEntity } from ".";
 
 const ProductPage = ({
   data,
@@ -23,7 +24,7 @@ const ProductPage = ({
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`https://naszsklep-api.vercel.app/api/products`);
+  const res = await fetch(API_URL);
   const data: ProductEntity[] = await res.json();
   return {
     paths: data.map(({ id }) => ({ params: { productId: `${id}` } })),
@@ -42,7 +43,7 @@ export const getStaticProps = async ({
   }
 
   const res = await fetch(
-    `https://naszsklep-api.vercel.app/api/products/${params.productId}`
+    `${API_URL}/products/${params.productId}`
   );
   const data: ProductEntity = await res.json();
 

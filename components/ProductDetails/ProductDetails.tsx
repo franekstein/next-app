@@ -1,8 +1,8 @@
-import { ProductEntity } from "@/pages/products/csr";
 import Image from "next/image";
 import { useState } from "react";
 import { Button } from "../Button/Button";
 import { Rating } from "../Rating/Rating";
+import { ProductEntity } from "@/model/product";
 
 export interface ProductDetailsProps {
   data: ProductEntity;
