@@ -1,14 +1,14 @@
 import clsx from "clsx";
 import Link from "next/link";
 
-export interface NavigationItemProps {
+export interface FooterNavigationItemProps {
   href: string;
   title: string;
   active: boolean;
 }
 
-export const NavigationItem = ({ href, title, active }: NavigationItemProps) => {
-  const classes = clsx("text-gray-700 hover:text-indigo-600", {
+export const FooterNavigationItem = ({ href, title, active }: FooterNavigationItemProps) => {
+  const classes = clsx("hover:text-gray-800", {
     "font-bold": active,
   });
 

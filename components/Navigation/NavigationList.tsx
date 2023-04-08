@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { NavigationItem } from "./NavigationItem";
 import { PRODUCTS_PER_PAGE } from "@/constants";
+import { isRouteActive } from "@/utils";
 
 export const NavigationList = () => {
   const navigation = [
@@ -18,7 +19,7 @@ export const NavigationList = () => {
           key={href}
           href={href}
           title={title}
-          active={pathname === href}
+          active={isRouteActive(pathname, href)}
         />
       ))}
     </ul>

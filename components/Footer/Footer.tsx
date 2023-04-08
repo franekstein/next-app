@@ -1,5 +1,5 @@
 import { Logo } from "@/icons/Logo";
-import { FooterNavigation } from "./FooterNavigation";
+import { FooterNavigationList } from "./FooterNavigationList";
 import { FooterSocial } from "./FooterSocial";
 
 export const Footer = () => (
@@ -12,7 +12,7 @@ export const Footer = () => (
         it to make a type specimen book.
       </p>
     </div>
-    <FooterNavigation />
+    <FooterNavigationList />
     <div className="mt-8 items-center justify-between sm:flex">
       <div className="mt-4 sm:mt-0">
         &copy; 2022 Logoipsum All rights reserved.
