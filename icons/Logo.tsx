@@ -81,4 +81,4 @@ export const Logo = () => (
       fill="#007DFC"
     ></path>
   </svg>
-);
+)

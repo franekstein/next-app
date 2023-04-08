@@ -1,5 +1,5 @@
 export type InferGetStaticPathsType<T> = T extends () => Promise<{
-  paths: Array<{ params: infer R }>;
+  paths: Array<{ params: infer R }>
 }>
   ? R
-  : never;
+  : never

@@ -1,13 +1,13 @@
-import Link from "next/link";
+import Link from 'next/link'
 
 export interface PageDescriptionProps {
-  header: string;
-  subheader: string;
-  description: string;
+  header: string
+  subheader: string
+  description: string
   link?: {
-    href: string;
-    title: string;
-  };
+    href: string
+    title: string
+  }
 }
 
 export const PageDescription = ({
@@ -20,7 +20,7 @@ export const PageDescription = ({
     className="py-28"
     style={{
       background:
-        "linear-gradient(152.92deg, rgba(192, 132, 252, 0.2) 4.54%, rgba(232, 121, 249, 0.17) 34.2%, rgba(192, 132, 252, 0.1) 77.55%)",
+        'linear-gradient(152.92deg, rgba(192, 132, 252, 0.2) 4.54%, rgba(232, 121, 249, 0.17) 34.2%, rgba(192, 132, 252, 0.1) 77.55%)',
     }}
   >
     <div className="max-w-screen-xl mx-auto px-4 md:text-center md:px-8">
@@ -43,4 +43,4 @@ export const PageDescription = ({
       )}
     </div>
   </section>
-);
+)

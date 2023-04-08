@@ -1,6 +1,6 @@
-import { FacebookIcon } from "@/icons/FacebookIcon";
-import { PinterestIcon } from "@/icons/PinterestIcon";
-import { TwitterIcon } from "@/icons/TwitterIcon";
+import { FacebookIcon } from '@/icons/FacebookIcon'
+import { PinterestIcon } from '@/icons/PinterestIcon'
+import { TwitterIcon } from '@/icons/TwitterIcon'
 
 export const FooterSocial = () => (
   <div className="mt-6 sm:mt-0">
@@ -24,4 +24,4 @@ export const FooterSocial = () => (
       </li>
     </ul>
   </div>
-);
+)

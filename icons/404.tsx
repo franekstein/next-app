@@ -17,4 +17,4 @@ export const Image404 = () => (
       </g>
     </g>
   </svg>
-);
+)
