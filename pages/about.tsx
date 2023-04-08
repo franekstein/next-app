@@ -1,14 +1,15 @@
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-import { Main } from "@/components/Main";
+import { Footer } from "@/components/Footer/Footer";
+import { Header } from "@/components/Header/Header";
+import { Main } from "@/components/Main/Main";
+import { Page } from "@/components/Page/Page";
 
 const AboutPage = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <Page>
       <Header />
       <Main>About</Main>
       <Footer />
-    </div>
+    </Page>
   );
 };
 
