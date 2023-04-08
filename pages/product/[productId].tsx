@@ -24,7 +24,7 @@ const ProductPage = ({
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch(API_URL);
+  const res = await fetch(`${API_URL}/products`);
   const data: ProductEntity[] = await res.json();
   return {
     paths: data.map(({ id }) => ({ params: { productId: `${id}` } })),
