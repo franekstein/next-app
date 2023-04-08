@@ -11,5 +11,5 @@ export const Link = (props: NextLinkProps) => {
     return <a href={href.toString()} rel="noopener noreferrer" {...rest} />;
   }
 
-  return <Link href={href} {...rest} />;
+  return <NextLink href={href} {...rest} />;
 };
