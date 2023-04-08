@@ -3,7 +3,7 @@
  * https://www.checklyhq.com/docs/browser-checks/playwright-test/
  * https://playwright.dev/docs/writing-tests
  */
-const { expect, test } = require('@playwright/test')
+import { expect, test } from '@playwright/test';
 
 test('visit page and take screenshot', async ({ page }) => {
   // If available, we set the target URL to a preview deployment URL provided by the ENVIRONMENT_URL created by Vercel.
@@ -14,7 +14,7 @@ test('visit page and take screenshot', async ({ page }) => {
   const response = await page.goto(targetUrl)
 
   // Test that the response did not fail
-  expect(response.status()).toBeLessThan(400)
+  expect(response?.status()).toBeLessThan(400)
 
   // Take a screenshot
   await page.screenshot({ path: 'screenshot.jpg' })
