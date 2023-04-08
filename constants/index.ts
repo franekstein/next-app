@@ -5,3 +5,4 @@ export const API_URL =
   process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api';
 export const PAGE_URL =
   process.env.NEXT_PUBLIC_PAGE_URL || 'http://localhost:3000';
+export const PAGE_NAME = 'NextApp'; 
