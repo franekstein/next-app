@@ -1,7 +1,4 @@
-import { Footer } from '@/components/Footer/Footer';
-import { Header } from '@/components/Header/Header';
-import { Main } from '@/components/Main/Main';
-import { Page } from '@/components/Page/Page';
+import { Layout } from '@/components/Layout/Layout';
 import { PageDescription } from '@/components/PageDescription/PageDescription';
 import { Pagination } from '@/components/Pagination/Pagination';
 import { ProductList } from '@/components/ProductList/ProductList';
@@ -10,6 +7,7 @@ import { InferGetStaticPathsType } from '@/model/utils';
 import { getProducts } from '@/services/product';
 import { getParam } from '@/utils';
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
+import { NextSeo } from 'next-seo';
 
 const PaginatedProductsPage = ({
   products,
@@ -19,27 +17,24 @@ const PaginatedProductsPage = ({
   hasPrev,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Page>
-      <Header />
-      <Main>
-        <section>
-          <PageDescription
-            header="Something incredible"
-            subheader="Realm of the galaxies"
-            description="Trillion paroxysm of global death cosmic ocean from which we spring colonies Cambrian explosion. Vanquish the impossible gathered by gravity a very small stage in a vast cosmic arena gathered by gravity emerged into consciousness emerged into consciousness? Great turbulent clouds emerged into consciousness rich in mystery astonishment extraordinary claims require extraordinary evidence citizens of distant epochs? "
-          />
-          {products.length > 0 && <ProductList products={products} />}
-          <Pagination
-            hasNext={hasNext}
-            hasPrev={hasPrev}
-            take={take}
-            offset={offset}
-            params={false}
-          />
-        </section>
-      </Main>
-      <Footer />
-    </Page>
+    <Layout>
+      <NextSeo title="Products page" description="Products desciption" />
+      <section>
+        <PageDescription
+          header="Something incredible"
+          subheader="Realm of the galaxies"
+          description="Trillion paroxysm of global death cosmic ocean from which we spring colonies Cambrian explosion. Vanquish the impossible gathered by gravity a very small stage in a vast cosmic arena gathered by gravity emerged into consciousness emerged into consciousness? Great turbulent clouds emerged into consciousness rich in mystery astonishment extraordinary claims require extraordinary evidence citizens of distant epochs? "
+        />
+        {products.length > 0 && <ProductList products={products} />}
+        <Pagination
+          hasNext={hasNext}
+          hasPrev={hasPrev}
+          take={take}
+          offset={offset}
+          params={false}
+        />
+      </section>
+    </Layout>
   );
 };
 

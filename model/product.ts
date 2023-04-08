@@ -1,3 +1,5 @@
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+
 export interface ProductEntity {
   id: string;
   title: string;
@@ -10,4 +12,13 @@ export interface ProductEntity {
   };
   image: string;
   longDescription: string;
+}
+
+export type MDXMarkdownContent = MDXRemoteSerializeResult<
+  Record<string, unknown>,
+  Record<string, unknown>
+>;
+
+export interface ProductDescriptionMarkdown {
+  longDescription: MDXMarkdownContent;
 }

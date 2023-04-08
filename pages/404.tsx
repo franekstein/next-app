@@ -1,6 +1,7 @@
 import { Button } from '@/components/Button/Button';
 import { Page } from '@/components/Page/Page';
 import { Image404 } from '@/icons/404';
+import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import { useCallback } from 'react';
 
@@ -10,6 +11,7 @@ export default function Custom404() {
 
   return (
     <Page>
+      <NextSeo title="404 page" description="404 desciption" />
       <main className="grid h-screen px-4 bg-white place-content-center">
         <div className="text-center">
           <Image404 />

@@ -2,10 +2,11 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { Button } from '../Button/Button';
 import { Rating } from '../Rating/Rating';
-import { ProductEntity } from '@/model/product';
+import { ProductDescriptionMarkdown, ProductEntity } from '@/model/product';
+import { Markdown } from '../Markdown/Markdown';
 
 export interface ProductDetailsProps {
-  product: ProductEntity;
+  product: Omit<ProductEntity, 'longDescription'> & ProductDescriptionMarkdown;
 }
 
 export const ProductDetails = ({ product }: ProductDetailsProps) => {
@@ -14,7 +15,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
     rating: { rate },
     title,
     price,
-    description,
+    longDescription,
   } = product;
   const [quantity, setQuantity] = useState(1);
   return (
@@ -76,9 +77,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
             </div>
 
             <div className="mt-4">
-              <div className="prose max-w-none">
-                <p>{description}</p>
-              </div>
+              <Markdown content={longDescription} />
             </div>
 
             <form className="mt-8">

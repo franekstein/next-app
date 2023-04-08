@@ -1,24 +1,20 @@
-import { Footer } from '@/components/Footer/Footer';
-import { Header } from '@/components/Header/Header';
-import { Main } from '@/components/Main/Main';
-import { Page } from '@/components/Page/Page';
+import { Layout } from '@/components/Layout/Layout';
 import { ProductDetails } from '@/components/ProductDetails/ProductDetails';
 import { getProduct, getProducts } from '@/services/product';
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
+import { NextSeo } from 'next-seo';
+import { serialize } from 'next-mdx-remote/serialize';
 
 const ProductPage = ({
   product,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Page>
-      <Header />
-      <Main>
-        <div className="flex flex-col">
-          {product && <ProductDetails product={product} />}
-        </div>
-      </Main>
-      <Footer />
-    </Page>
+    <Layout>
+      <NextSeo title={product?.title} description={product?.description} />
+      <div className="flex flex-col">
+        {product && <ProductDetails product={product} />}
+      </div>
+    </Layout>
   );
 };
 
@@ -41,10 +37,11 @@ export const getStaticProps = async ({
   }
 
   const product = await getProduct(params.productId);
+  const longDescription = await serialize(product.longDescription);
 
   return {
     props: {
-      product,
+      product: { ...product, longDescription },
     },
   };
 };
