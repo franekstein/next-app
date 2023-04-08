@@ -1,13 +1,13 @@
 import { MDXMarkdownContent } from '@/model/product';
 import { MDXRemote } from 'next-mdx-remote';
-import { Link } from '../Link/Link';
+import { MarkdownLink } from '../MarkdownLink/MarkdownLink';
 
 export const Markdown = ({ content }: { content: MDXMarkdownContent }) => {
   return (
     <div className="prose max-w-none">
       <MDXRemote
         components={{
-          a: ({ href, ref, ...rest }) => <Link href={href || '#'} {...rest} />,
+          a: ({ href, ref, ...rest }) => <MarkdownLink href={href || '#'} {...rest} />,
         }}
         {...content}
       />

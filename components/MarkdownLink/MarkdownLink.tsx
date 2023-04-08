@@ -1,9 +1,9 @@
 import { isExternalLink } from '@/utils';
-import { default as NextLink } from 'next/link';
+import Link  from 'next/link';
 
-type NextLinkProps = React.ComponentProps<typeof NextLink>;
+type MarkdownLinkProps = React.ComponentProps<typeof Link>;
 
-export const Link = (props: NextLinkProps) => {
+export const MarkdownLink = (props: MarkdownLinkProps) => {
   const { href: htmlHref, ...rest } = props;
   const href = htmlHref.toString();
 
@@ -11,5 +11,5 @@ export const Link = (props: NextLinkProps) => {
     return <a href={href.toString()} rel="noopener noreferrer" {...rest} />;
   }
 
-  return <NextLink href={href} {...rest} />;
+  return <Link href={href} {...rest} />;
 };
