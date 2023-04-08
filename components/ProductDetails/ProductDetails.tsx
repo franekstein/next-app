@@ -5,17 +5,17 @@ import { Rating } from "../Rating/Rating";
 import { ProductEntity } from "@/model/product";
 
 export interface ProductDetailsProps {
-  data: ProductEntity;
+  product: ProductEntity;
 }
 
-export const ProductDetails = ({ data }: ProductDetailsProps) => {
+export const ProductDetails = ({ product }: ProductDetailsProps) => {
   const {
     image,
     rating: { rate },
     title,
     price,
     description,
-  } = data;
+  } = product;
   const [quantity, setQuantity] = useState(1);
   return (
     <section>

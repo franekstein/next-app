@@ -38,7 +38,7 @@ const ProductsPage = () => {
               <Loader />
             </div>
           )}
-          {products.length > 0 && <ProductList data={products} />}
+          {products.length > 0 && <ProductList products={products} />}
           <Pagination
             hasNext={hasNext}
             hasPrev={hasPrev}

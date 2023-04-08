@@ -3,11 +3,11 @@ import { Rating } from "../Rating/Rating";
 import { ProductEntity } from "@/model/product";
 
 interface ProductProps {
-  data: ProductEntity;
+  product: ProductEntity;
 }
 
-export const Product = ({ data }: ProductProps) => {
-  const { image, rating, title, price } = data;
+export const Product = ({ product }: ProductProps) => {
+  const { image, rating, title, price } = product;
   return (
     <div className="group block overflow-hidden p-4">
       <Image

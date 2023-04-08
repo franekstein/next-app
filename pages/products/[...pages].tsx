@@ -12,7 +12,7 @@ import { getParam } from "@/utils";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 
 const PaginatedProductsPage = ({
-  data: products,
+  products,
   take,
   offset,
   hasNext,
@@ -28,7 +28,7 @@ const PaginatedProductsPage = ({
             subheader="Realm of the galaxies"
             description="Trillion paroxysm of global death cosmic ocean from which we spring colonies Cambrian explosion. Vanquish the impossible gathered by gravity a very small stage in a vast cosmic arena gathered by gravity emerged into consciousness emerged into consciousness? Great turbulent clouds emerged into consciousness rich in mystery astonishment extraordinary claims require extraordinary evidence citizens of distant epochs? "
           />
-          {products.length > 0 && <ProductList data={products} />}
+          {products.length > 0 && <ProductList products={products} />}
           <Pagination
             hasNext={hasNext}
             hasPrev={hasPrev}
@@ -69,7 +69,7 @@ export const getStaticProps = async ({
 
   return {
     props: {
-      data: filteredProducts,
+      products: filteredProducts,
       take,
       offset,
       hasNext,

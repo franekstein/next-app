@@ -7,14 +7,14 @@ import { getProduct, getProducts } from "@/services/product";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 
 const ProductPage = ({
-  data,
+  product,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Page>
       <Header />
       <Main>
         <div className="flex flex-col">
-          {data && <ProductDetails data={data} />}
+          {product && <ProductDetails product={product} />}
         </div>
       </Main>
       <Footer />
@@ -23,9 +23,9 @@ const ProductPage = ({
 };
 
 export const getStaticPaths = async () => {
-  const data = await getProducts();
+  const products = await getProducts();
   return {
-    paths: data.map(({ id }) => ({ params: { productId: `${id}` } })),
+    paths: products.map(({ id }) => ({ params: { productId: `${id}` } })),
     fallback: false,
   };
 };
@@ -40,11 +40,11 @@ export const getStaticProps = async ({
     };
   }
 
-  const data = await getProduct(params.productId);
+  const product = await getProduct(params.productId);
 
   return {
     props: {
-      data,
+      product,
     },
   };
 };
