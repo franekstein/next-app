@@ -19,3 +19,12 @@ export const isRouteActive = (pattern: string, route: string) => {
   const routeBase = pattern.substring(0, match.index);
   return route.startsWith(routeBase);
 };
+
+export const createQueryParams = (
+  params: Record<string, string | number | undefined | null>
+) => {
+  const queryString = Object.keys(params)
+    .map((k) => `${k}=${encodeURI(`${params[k]}`)}`)
+    .join("&");
+  return queryString ? `?${queryString}` : "";
+};

@@ -3,8 +3,7 @@ import { Header } from "@/components/Header/Header";
 import { Main } from "@/components/Main/Main";
 import { Page } from "@/components/Page/Page";
 import { ProductDetails } from "@/components/ProductDetails/ProductDetails";
-import { API_URL } from "@/constants";
-import { ProductEntity } from "@/model/product";
+import { getProduct, getProducts } from "@/services/product";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 
 const ProductPage = ({
@@ -24,8 +23,7 @@ const ProductPage = ({
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`${API_URL}/products`);
-  const data: ProductEntity[] = await res.json();
+  const data = await getProducts();
   return {
     paths: data.map(({ id }) => ({ params: { productId: `${id}` } })),
     fallback: false,
@@ -42,10 +40,7 @@ export const getStaticProps = async ({
     };
   }
 
-  const res = await fetch(
-    `${API_URL}/products/${params.productId}`
-  );
-  const data: ProductEntity = await res.json();
+  const data = await getProduct(params.productId);
 
   return {
     props: {
