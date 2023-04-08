@@ -1,15 +1,12 @@
-import { Footer } from '@/components/Footer/Footer';
-import { Header } from '@/components/Header/Header';
-import { Main } from '@/components/Main/Main';
-import { Page } from '@/components/Page/Page';
+import { Layout } from '@/components/Layout/Layout';
+import { NextSeo } from 'next-seo';
 
 const AboutPage = () => {
   return (
-    <Page>
-      <Header />
-      <Main>About</Main>
-      <Footer />
-    </Page>
+    <Layout>
+      <NextSeo title="About page" description="About desciption" />
+      About
+    </Layout>
   );
 };
 

@@ -8,7 +8,8 @@ import { expect, test } from '@playwright/test';
 test('visit 404 page and take screenshot', async ({ page }) => {
   // If available, we set the target URL to a preview deployment URL provided by the ENVIRONMENT_URL created by Vercel.
   // Otherwise, we use the Production URL.
-  const baseUrl = process.env.ENVIRONMENT_URL || 'https://next-app-phi-virid.vercel.app';
+  const baseUrl =
+    process.env.ENVIRONMENT_URL || 'https://next-app-phi-virid.vercel.app';
   const targetUrl = `${baseUrl}/page-that-should-not-exist`;
 
   // We visit the page. This waits for the "load" event by default.

@@ -28,3 +28,9 @@ export const createQueryParams = (
     .join('&');
   return queryString ? `?${queryString}` : '';
 };
+
+export const isExternalLink = (url: string) => {
+  const link = document.createElement('a');
+  link.href = url;
+  return link.host !== window.location.host;
+};

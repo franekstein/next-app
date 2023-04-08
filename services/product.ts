@@ -20,3 +20,6 @@ export const getProduct = async (id: string): Promise<ProductEntity> => {
   const data = await fetch(`${API_URL}/products/${id}`);
   return data.json();
 };
+
+// Nie opakowywać linków prowadzących do zewnętrznych stron w komponent <Link>
+// Dodać do linków zewnętrznych atrybuty rel="noopener noreferrer"

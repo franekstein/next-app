@@ -13,7 +13,7 @@ export const ProductList = ({ products }: ProductListProps) => {
         const { id } = product;
         return (
           <li key={id}>
-            <Link href={`/products/csr/${id}`}>
+            <Link href={`/product/${id}`}>
               <Product product={product} />
             </Link>
           </li>
