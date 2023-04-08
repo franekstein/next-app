@@ -10,7 +10,7 @@ export default function Custom404() {
 
   return (
     <Page>
-      <div className="grid h-screen px-4 bg-white place-content-center">
+      <main className="grid h-screen px-4 bg-white place-content-center">
         <div className="text-center">
           <Image404 />
 
@@ -26,7 +26,7 @@ export default function Custom404() {
             Take me back!
           </Button>
         </div>
-      </div>
+      </main>
     </Page>
   )
 }
