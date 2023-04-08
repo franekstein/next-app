@@ -1,6 +1,6 @@
-import { Logo } from "@/icons/Logo";
-import { FooterNavigationList } from "./FooterNavigationList";
-import { FooterSocial } from "./FooterSocial";
+import { Logo } from '@/icons/Logo'
+import { FooterNavigationList } from './FooterNavigationList'
+import { FooterSocial } from './FooterSocial'
 
 export const Footer = () => (
   <footer className="text-gray-500 bg-white px-4 py-6 max-w-screen-xl mx-auto md:px-8">
@@ -20,4 +20,4 @@ export const Footer = () => (
       <FooterSocial />
     </div>
   </footer>
-);
+)

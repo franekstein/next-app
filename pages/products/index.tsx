@@ -1,27 +1,27 @@
-import { Footer } from "@/components/Footer/Footer";
-import { Header } from "@/components/Header/Header";
-import { Loader } from "@/components/Loader/Loader";
-import { Main } from "@/components/Main/Main";
-import { Page } from "@/components/Page/Page";
-import { PageDescription } from "@/components/PageDescription/PageDescription";
-import { Pagination } from "@/components/Pagination/Pagination";
-import { ProductList } from "@/components/ProductList/ProductList";
-import { PRODUCTS_PER_PAGE } from "@/constants";
-import { useProducts } from "@/hooks/useProducts";
-import { getParam } from "@/utils";
-import { useRouter } from "next/router";
+import { Footer } from '@/components/Footer/Footer'
+import { Header } from '@/components/Header/Header'
+import { Loader } from '@/components/Loader/Loader'
+import { Main } from '@/components/Main/Main'
+import { Page } from '@/components/Page/Page'
+import { PageDescription } from '@/components/PageDescription/PageDescription'
+import { Pagination } from '@/components/Pagination/Pagination'
+import { ProductList } from '@/components/ProductList/ProductList'
+import { PRODUCTS_PER_PAGE } from '@/constants'
+import { useProducts } from '@/hooks/useProducts'
+import { getParam } from '@/utils'
+import { useRouter } from 'next/router'
 
 const ProductsPage = () => {
   const {
     query: { take: initialTake, offset: initialOffset },
-  } = useRouter();
+  } = useRouter()
 
-  const parsedTake = getParam(initialTake, PRODUCTS_PER_PAGE);
-  const parsedOffset = getParam(initialOffset, 0);
+  const parsedTake = getParam(initialTake, PRODUCTS_PER_PAGE)
+  const parsedOffset = getParam(initialOffset, 0)
   const { products, hasNext, hasPrev, isLoading, take, offset } = useProducts({
     take: parsedTake,
     offset: parsedOffset,
-  });
+  })
 
   return (
     <Page>
@@ -50,7 +50,7 @@ const ProductsPage = () => {
       </Main>
       <Footer />
     </Page>
-  );
-};
+  )
+}
 
-export default ProductsPage;
+export default ProductsPage

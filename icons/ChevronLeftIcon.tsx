@@ -11,4 +11,4 @@ export const ChevronLeftIcon = () => (
       clipRule="evenodd"
     />
   </svg>
-);
+)

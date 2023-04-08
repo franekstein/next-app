@@ -1,16 +1,16 @@
-import { Button } from "@/components/Button/Button";
-import { Page } from "@/components/Page/Page";
-import { Image404 } from "@/icons/404";
-import { useRouter } from "next/router";
-import { useCallback } from "react";
+import { Button } from '@/components/Button/Button'
+import { Page } from '@/components/Page/Page'
+import { Image404 } from '@/icons/404'
+import { useRouter } from 'next/router'
+import { useCallback } from 'react'
 
 export default function Custom404() {
-  const { back } = useRouter();
-  const goBack = useCallback(() => back(), [back]);
+  const { back } = useRouter()
+  const goBack = useCallback(() => back(), [back])
 
   return (
     <Page>
-      <div className="grid h-screen px-4 bg-white place-content-center">
+      <main className="grid h-screen px-4 bg-white place-content-center">
         <div className="text-center">
           <Image404 />
 
@@ -22,9 +22,11 @@ export default function Custom404() {
             We can&apos;t find that page.
           </p>
 
-          <Button variant="primary" onClick={goBack}>Take me back!</Button>
+          <Button variant="primary" onClick={goBack}>
+            Take me back!
+          </Button>
         </div>
-      </div>
+      </main>
     </Page>
-  );
+  )
 }

@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react'
 
 interface MainProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export const Main = ({ children }: MainProps) => {
@@ -9,5 +9,5 @@ export const Main = ({ children }: MainProps) => {
     <main className="relative flex-grow mx-auto mt-6 w-full max-w-container px-4 sm:px-6 lg:px-8">
       {children}
     </main>
-  );
-};
+  )
+}

@@ -1,11 +1,11 @@
-import Image from "next/image";
-import { useState } from "react";
-import { Button } from "../Button/Button";
-import { Rating } from "../Rating/Rating";
-import { ProductEntity } from "@/model/product";
+import Image from 'next/image'
+import { useState } from 'react'
+import { Button } from '../Button/Button'
+import { Rating } from '../Rating/Rating'
+import { ProductEntity } from '@/model/product'
 
 export interface ProductDetailsProps {
-  product: ProductEntity;
+  product: ProductEntity
 }
 
 export const ProductDetails = ({ product }: ProductDetailsProps) => {
@@ -15,8 +15,8 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
     title,
     price,
     description,
-  } = product;
-  const [quantity, setQuantity] = useState(1);
+  } = product
+  const [quantity, setQuantity] = useState(1)
   return (
     <section>
       <div className="relative mx-auto max-w-screen-xl px-4 py-8">
@@ -93,17 +93,23 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
                     id="quantity"
                     min="1"
                     value={quantity}
-                    onChange={({ target: { valueAsNumber } }) => setQuantity((previousValue) => isNaN(valueAsNumber) ? previousValue : valueAsNumber)}
+                    onChange={({ target: { valueAsNumber } }) =>
+                      setQuantity((previousValue) =>
+                        isNaN(valueAsNumber) ? previousValue : valueAsNumber
+                      )
+                    }
                     className="w-12 rounded border-gray-200 py-3 text-center text-xs [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
                   />
                 </div>
 
-                <Button variant="primary" type="submit">Add to Cart</Button>
+                <Button variant="primary" type="submit">
+                  Add to Cart
+                </Button>
               </div>
             </form>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

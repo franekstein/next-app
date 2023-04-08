@@ -1,25 +1,25 @@
-import { CartIcon } from "@/icons/CartIcon";
-import clsx from "clsx";
-import Link from "next/link";
-import { useCallback, useState } from "react";
-import { Logo } from "../../icons/Logo";
-import { NavigationList } from "./NavigationList";
-import { NavigationMobile } from "./NavigationMobile";
+import { CartIcon } from '@/icons/CartIcon'
+import clsx from 'clsx'
+import Link from 'next/link'
+import { useCallback, useState } from 'react'
+import { Logo } from '../../icons/Logo'
+import { NavigationList } from './NavigationList'
+import { NavigationMobile } from './NavigationMobile'
 
 export const Navigation = () => {
-  const [menuActive, setMenuActive] = useState(false);
+  const [menuActive, setMenuActive] = useState(false)
   const navigationListClasses = clsx(
-    "flex-1 pb-3 mt-8 md:flex md:items-center md:pb-0 md:mt-0",
+    'flex-1 pb-3 mt-8 md:flex md:items-center md:pb-0 md:mt-0',
     {
       flex: menuActive,
       hidden: !menuActive,
     }
-  );
+  )
 
   const onMenuClick = useCallback(
     () => setMenuActive((previousState) => !previousState),
     []
-  );
+  )
 
   return (
     <nav className="bg-white border-b w-full md:static md:text-sm">
@@ -41,5 +41,5 @@ export const Navigation = () => {
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}

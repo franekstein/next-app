@@ -1,7 +1,5 @@
-import React from 'react';
+import React from 'react'
 
-const UsersIndex = () => (
-  <div>UsersIndex</div>
-);
+const UsersIndex = () => <div>UsersIndex</div>
 
-export default UsersIndex;
+export default UsersIndex

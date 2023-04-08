@@ -1,10 +1,10 @@
-import { CartIcon } from "@/icons/CartIcon";
-import { CrossIcon } from "@/icons/CrossIcon";
-import { MenuIcon } from "@/icons/MenuIcon";
+import { CartIcon } from '@/icons/CartIcon'
+import { CrossIcon } from '@/icons/CrossIcon'
+import { MenuIcon } from '@/icons/MenuIcon'
 
 export interface NavigationMobileProps {
-  active: boolean;
-  onClick: VoidFunction;
+  active: boolean
+  onClick: VoidFunction
 }
 
 export const NavigationMobile = ({
@@ -22,4 +22,4 @@ export const NavigationMobile = ({
       {active ? <MenuIcon /> : <CrossIcon />}
     </button>
   </div>
-);
+)

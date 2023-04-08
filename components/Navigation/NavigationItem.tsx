@@ -1,16 +1,20 @@
-import clsx from "clsx";
-import Link from "next/link";
+import clsx from 'clsx'
+import Link from 'next/link'
 
 export interface NavigationItemProps {
-  href: string;
-  title: string;
-  active: boolean;
+  href: string
+  title: string
+  active: boolean
 }
 
-export const NavigationItem = ({ href, title, active }: NavigationItemProps) => {
-  const classes = clsx("text-gray-700 hover:text-indigo-600", {
-    "font-bold": active,
-  });
+export const NavigationItem = ({
+  href,
+  title,
+  active,
+}: NavigationItemProps) => {
+  const classes = clsx('text-gray-700 hover:text-indigo-600', {
+    'font-bold': active,
+  })
 
   return (
     <li className={classes}>
@@ -18,5 +22,5 @@ export const NavigationItem = ({ href, title, active }: NavigationItemProps) => 
         {title}
       </Link>
     </li>
-  );
-};
+  )
+}
