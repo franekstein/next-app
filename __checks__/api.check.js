@@ -1,4 +1,3 @@
-import * as path from 'path'
 import { ApiCheck } from '@checkly/cli/dist/constructs'
 import { websiteGroup } from './website.check-group'
 
