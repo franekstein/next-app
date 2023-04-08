@@ -1,4 +1,4 @@
-import { defineConfig } from '@checkly/cli'
+import { defineConfig } from '@checkly/cli';
 
 /**
  * See https://www.checklyhq.com/docs/cli/project-structure/
@@ -35,6 +35,6 @@ const config = defineConfig({
     /* The default datacenter location to use when running npx checkly test */
     runLocation: 'eu-west-1',
   },
-})
+});
 
-export default config
+export default config;

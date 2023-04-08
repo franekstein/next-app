@@ -1,13 +1,13 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 export interface PageDescriptionProps {
-  header: string
-  subheader: string
-  description: string
+  header: string;
+  subheader: string;
+  description: string;
   link?: {
-    href: string
-    title: string
-  }
+    href: string;
+    title: string;
+  };
 }
 
 export const PageDescription = ({
@@ -43,4 +43,4 @@ export const PageDescription = ({
       )}
     </div>
   </section>
-)
+);

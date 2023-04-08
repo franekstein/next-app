@@ -1,8 +1,8 @@
-import { Footer } from '@/components/Footer/Footer'
-import { Main } from '@/components/Main/Main'
-import { Header } from '@/components/Header/Header'
-import { Page } from '@/components/Page/Page'
-import { PageDescription } from '@/components/PageDescription/PageDescription'
+import { Footer } from '@/components/Footer/Footer';
+import { Main } from '@/components/Main/Main';
+import { Header } from '@/components/Header/Header';
+import { Page } from '@/components/Page/Page';
+import { PageDescription } from '@/components/PageDescription/PageDescription';
 
 const Home = () => {
   return (
@@ -18,7 +18,7 @@ const Home = () => {
       </Main>
       <Footer />
     </Page>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

@@ -1,7 +1,7 @@
-import { Footer } from '@/components/Footer/Footer'
-import { Header } from '@/components/Header/Header'
-import { Main } from '@/components/Main/Main'
-import { Page } from '@/components/Page/Page'
+import { Footer } from '@/components/Footer/Footer';
+import { Header } from '@/components/Header/Header';
+import { Main } from '@/components/Main/Main';
+import { Page } from '@/components/Page/Page';
 
 const AboutPage = () => {
   return (
@@ -10,7 +10,7 @@ const AboutPage = () => {
       <Main>About</Main>
       <Footer />
     </Page>
-  )
-}
+  );
+};
 
-export default AboutPage
+export default AboutPage;

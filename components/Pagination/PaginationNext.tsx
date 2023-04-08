@@ -1,11 +1,11 @@
-import { ChevronRightIcon } from '@/icons/ChevronRightIcon'
-import clsx from 'clsx'
-import Link from 'next/link'
+import { ChevronRightIcon } from '@/icons/ChevronRightIcon';
+import clsx from 'clsx';
+import Link from 'next/link';
 
 export interface PaginationNextProps {
-  href: string
-  onClick?: VoidFunction
-  disabled?: boolean
+  href: string;
+  onClick?: VoidFunction;
+  disabled?: boolean;
 }
 
 export const PaginationNext = ({
@@ -19,11 +19,11 @@ export const PaginationNext = ({
       'cursor-not-allowed hover:text-current pointer-events-none opacity-25':
         disabled,
     }
-  )
+  );
   return (
     <Link onClick={onClick} href={href} className={buttonClasses}>
       Next
       <ChevronRightIcon />
     </Link>
-  )
-}
+  );
+};

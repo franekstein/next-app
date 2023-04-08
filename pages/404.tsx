@@ -1,12 +1,12 @@
-import { Button } from '@/components/Button/Button'
-import { Page } from '@/components/Page/Page'
-import { Image404 } from '@/icons/404'
-import { useRouter } from 'next/router'
-import { useCallback } from 'react'
+import { Button } from '@/components/Button/Button';
+import { Page } from '@/components/Page/Page';
+import { Image404 } from '@/icons/404';
+import { useRouter } from 'next/router';
+import { useCallback } from 'react';
 
 export default function Custom404() {
-  const { back } = useRouter()
-  const goBack = useCallback(() => back(), [back])
+  const { back } = useRouter();
+  const goBack = useCallback(() => back(), [back]);
 
   return (
     <Page>
@@ -28,5 +28,5 @@ export default function Custom404() {
         </div>
       </main>
     </Page>
-  )
+  );
 }

@@ -1,7 +1,7 @@
-import clsx from 'clsx'
+import clsx from 'clsx';
 
 export interface ButtonProps {
-  variant: 'primary' | 'ghost'
+  variant: 'primary' | 'ghost';
 }
 
 export const Button = ({
@@ -22,6 +22,6 @@ export const Button = ({
     { 'text-gray-700 hover:border-indigo-600': variant === 'ghost' },
     { 'hover:border-indigo-200': disabled && variant === 'ghost' },
     className
-  )
-  return <button {...rest} className={buttonClasses} disabled={disabled} />
-}
+  );
+  return <button {...rest} className={buttonClasses} disabled={disabled} />;
+};

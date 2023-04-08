@@ -1,15 +1,15 @@
-import { Footer } from '@/components/Footer/Footer'
-import { Header } from '@/components/Header/Header'
-import { Main } from '@/components/Main/Main'
-import { Page } from '@/components/Page/Page'
-import { PageDescription } from '@/components/PageDescription/PageDescription'
-import { Pagination } from '@/components/Pagination/Pagination'
-import { ProductList } from '@/components/ProductList/ProductList'
-import { PRODUCTS_PER_PAGE, SSG_PRODUCTS_PAGES } from '@/constants'
-import { InferGetStaticPathsType } from '@/model/utils'
-import { getProducts } from '@/services/product'
-import { getParam } from '@/utils'
-import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import { Footer } from '@/components/Footer/Footer';
+import { Header } from '@/components/Header/Header';
+import { Main } from '@/components/Main/Main';
+import { Page } from '@/components/Page/Page';
+import { PageDescription } from '@/components/PageDescription/PageDescription';
+import { Pagination } from '@/components/Pagination/Pagination';
+import { ProductList } from '@/components/ProductList/ProductList';
+import { PRODUCTS_PER_PAGE, SSG_PRODUCTS_PAGES } from '@/constants';
+import { InferGetStaticPathsType } from '@/model/utils';
+import { getProducts } from '@/services/product';
+import { getParam } from '@/utils';
+import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 
 const PaginatedProductsPage = ({
   products,
@@ -40,8 +40,8 @@ const PaginatedProductsPage = ({
       </Main>
       <Footer />
     </Page>
-  )
-}
+  );
+};
 
 export const getStaticPaths = async () => {
   return {
@@ -51,21 +51,21 @@ export const getStaticPaths = async () => {
       },
     })),
     fallback: 'blocking',
-  }
-}
+  };
+};
 
 export const getStaticProps = async ({
   params,
 }: GetStaticPropsContext<InferGetStaticPathsType<typeof getStaticPaths>>) => {
-  const take = getParam(params?.pages[0], PRODUCTS_PER_PAGE)
-  const offset = getParam(params?.pages[1], 0)
-  const products = await getProducts(take + 1, offset)
+  const take = getParam(params?.pages[0], PRODUCTS_PER_PAGE);
+  const offset = getParam(params?.pages[1], 0);
+  const products = await getProducts(take + 1, offset);
 
-  const hasPrev = offset !== 0
-  const hasNext = products.length === take + 1
+  const hasPrev = offset !== 0;
+  const hasNext = products.length === take + 1;
 
   const filteredProducts =
-    products.length === take + 1 ? products.slice(0, -1) : products
+    products.length === take + 1 ? products.slice(0, -1) : products;
 
   return {
     props: {
@@ -75,7 +75,7 @@ export const getStaticProps = async ({
       hasNext,
       hasPrev,
     },
-  }
-}
+  };
+};
 
-export default PaginatedProductsPage
+export default PaginatedProductsPage;

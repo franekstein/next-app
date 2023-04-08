@@ -1,7 +1,7 @@
-import { StarIcon } from '@/icons/StarIcon'
+import { StarIcon } from '@/icons/StarIcon';
 
 interface RatingProps {
-  rating: number
+  rating: number;
 }
 
 export const Rating = ({ rating }: RatingProps) => {
@@ -12,5 +12,5 @@ export const Rating = ({ rating }: RatingProps) => {
         {rating}
       </p>
     </div>
-  )
-}
+  );
+};

@@ -1,13 +1,13 @@
-import Image from 'next/image'
-import { Rating } from '../Rating/Rating'
-import { ProductEntity } from '@/model/product'
+import Image from 'next/image';
+import { Rating } from '../Rating/Rating';
+import { ProductEntity } from '@/model/product';
 
 interface ProductProps {
-  product: ProductEntity
+  product: ProductEntity;
 }
 
 export const Product = ({ product }: ProductProps) => {
-  const { image, rating, title, price } = product
+  const { image, rating, title, price } = product;
   return (
     <div className="group block overflow-hidden p-4">
       <Image
@@ -29,5 +29,5 @@ export const Product = ({ product }: ProductProps) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
