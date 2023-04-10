@@ -31,7 +31,8 @@ const createCartService = (client: CartClient = cartClient): CartService => ({
   removeItem: (itemToRemove: CartItem) => {
     const items = client.getCart();
     const newItems = items
-      .map(({ product, quantity }) => {
+      .map((item) => {
+        const { product, quantity } = item;
         if (product.id === itemToRemove.product.id) {
           const newQuantity = quantity - itemToRemove.quantity;
           if (newQuantity <= 0) {
@@ -42,6 +43,7 @@ const createCartService = (client: CartClient = cartClient): CartService => ({
             quantity: newQuantity,
           };
         }
+        return item;
       })
       .filter(isItem);
     client.setCart(newItems);

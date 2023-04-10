@@ -1,12 +1,14 @@
 import { Button } from '@/components/Button/Button';
 import { Layout } from '@/components/Layout/Layout';
 import { useCart } from '@/hooks/useCart';
+import { MinusIcon } from '@/icons/MinusIcon';
+import { PlusIcon } from '@/icons/PlusIcon';
+import { TrashIcon } from '@/icons/TrashIcon';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import React from 'react';
 
 const CheckoutPage = () => {
-  const { getTotals, items } = useCart();
+  const { getTotals, items, addItem, removeItem } = useCart();
   const { price } = getTotals();
 
   return (
@@ -17,23 +19,29 @@ const CheckoutPage = () => {
         <div className="mx-auto grid max-w-screen-2xl grid-cols-1 md:grid-cols-2">
           <div className="bg-gray-50">
             <div className="mx-auto max-w-lg space-y-8 px-4 lg:px-8">
-              <div>
-                <p className="text-2xl font-medium tracking-tight text-gray-900">
-                  ${price}
-                </p>
+              {items.length === 0 && (
+                <div>
+                  <p className="text-2xl font-medium tracking-tight text-gray-900">
+                    ${price}
+                  </p>
 
-                <p className="mt-1 text-sm text-gray-600">
-                  For the purchase of
-                </p>
-              </div>
+                  <p className="mt-1 text-sm text-gray-600">
+                    For the purchase of
+                  </p>
+                </div>
+              )}
 
               <div className="flex flex-col items-start justify-between">
                 <div className="max-w-xl pb-6">
                   <h3 className="font-semibold text-[16px]">Cart</h3>
                 </div>
                 <ul className="space-y-6 w-full">
-                  {items.map(
-                    ({ product: { id, title, price, image }, quantity }) => (
+                  {items.length === 0 && (
+                    <li className="flex items-center gap-6">Cart is empty</li>
+                  )}
+                  {items.map(({ product, quantity }) => {
+                    const { id, title, price, image } = product;
+                    return (
                       <li key={id} className="flex items-center gap-6">
                         <Image
                           src={image}
@@ -43,10 +51,10 @@ const CheckoutPage = () => {
                           height={712}
                         />
 
-                        <div>
+                        <div className="flex flex-1 flex-col">
                           <h3 className="text-sm text-gray-900">{title}</h3>
 
-                          <dl className="mt-2 space-y-px text-[12px] text-gray-600">
+                          <dl className="mt-2 space-y-2 text-[14px] text-gray-600">
                             <div>
                               <dt className="inline">Price:</dt>
                               <dd className="ml-1 inline font-bold">
@@ -54,17 +62,39 @@ const CheckoutPage = () => {
                               </dd>
                             </div>
 
-                            <div>
-                              <dt className="inline">Qty:</dt>
-                              <dd className="ml-1 inline font-bold">
+                            <div className="flex mt-2 items-center">
+                              <button
+                                onClick={() =>
+                                  removeItem({ product, quantity: 1 })
+                                }
+                              >
+                                <MinusIcon />
+                              </button>
+                              <dt className="mx-1 inline">Qty:</dt>
+                              <dd className="mx-1 inline font-bold">
                                 {quantity}
                               </dd>
+                              <button
+                                onClick={() =>
+                                  addItem({ product, quantity: 1 })
+                                }
+                              >
+                                <PlusIcon />
+                              </button>
+                              <button
+                                className="ml-auto"
+                                onClick={() =>
+                                  removeItem({ product, quantity })
+                                }
+                              >
+                                <TrashIcon />
+                              </button>
                             </div>
                           </dl>
                         </div>
                       </li>
-                    )
-                  )}
+                    );
+                  })}
                 </ul>
               </div>
             </div>
