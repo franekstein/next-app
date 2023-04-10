@@ -1,4 +1,4 @@
-import { getProducts } from '@/services/product';
+import { productService } from '@/services/product';
 import { useQuery } from 'react-query';
 
 export const useProducts = ({
@@ -9,7 +9,7 @@ export const useProducts = ({
   offset: number;
 }) => {
   const { data: products = [], ...rest } = useQuery(['products'], () =>
-    getProducts(take + 1, offset)
+    productService.getProducts(take + 1, offset)
   );
 
   const hasPrev = offset !== 0;

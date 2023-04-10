@@ -20,5 +20,5 @@ export type MDXMarkdownContent = MDXRemoteSerializeResult<
 >;
 
 export interface ProductDescriptionMarkdown {
-  longDescription: MDXMarkdownContent;
+  longDescriptionMarkdown: MDXMarkdownContent;
 }

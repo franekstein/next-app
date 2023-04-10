@@ -4,7 +4,7 @@ import { Pagination } from '@/components/Pagination/Pagination';
 import { ProductList } from '@/components/ProductList/ProductList';
 import { PRODUCTS_PER_PAGE, SSG_PRODUCTS_PAGES } from '@/constants';
 import { InferGetStaticPathsType } from '@/model/utils';
-import { getProducts } from '@/services/product';
+import { productService } from '@/services/product';
 import { getParam } from '@/utils';
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { NextSeo } from 'next-seo';
@@ -54,7 +54,7 @@ export const getStaticProps = async ({
 }: GetStaticPropsContext<InferGetStaticPathsType<typeof getStaticPaths>>) => {
   const take = getParam(params?.pages[0], PRODUCTS_PER_PAGE);
   const offset = getParam(params?.pages[1], 0);
-  const products = await getProducts(take + 1, offset);
+  const products = await productService.getProducts(take + 1, offset);
 
   const hasPrev = offset !== 0;
   const hasNext = products.length === take + 1;
