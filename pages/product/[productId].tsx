@@ -1,6 +1,6 @@
 import { Layout } from '@/components/Layout/Layout';
 import { ProductDetails } from '@/components/ProductDetails/ProductDetails';
-import { getProduct, getProducts } from '@/services/product';
+import { productService } from '@/services/product';
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { NextSeo } from 'next-seo';
 import { serialize } from 'next-mdx-remote/serialize';
@@ -19,7 +19,7 @@ const ProductPage = ({
 };
 
 export const getStaticPaths = async () => {
-  const products = await getProducts();
+  const products = await productService.getProducts();
   return {
     paths: products.map(({ id }) => ({ params: { productId: `${id}` } })),
     fallback: false,
@@ -36,12 +36,12 @@ export const getStaticProps = async ({
     };
   }
 
-  const product = await getProduct(params.productId);
-  const longDescription = await serialize(product.longDescription);
+  const product = await productService.getProduct(params.productId);
+  const longDescriptionMarkdown = await serialize(product.longDescription);
 
   return {
     props: {
-      product: { ...product, longDescription },
+      product: { ...product, longDescriptionMarkdown },
     },
   };
 };

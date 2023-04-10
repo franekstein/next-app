@@ -13,7 +13,7 @@ export const Product = ({ product }: ProductProps) => {
       <Image
         src={image}
         alt={title}
-        className="w-full aspect-[2/3] object-cover transition duration-500 group-hover:scale-105"
+        className="w-full aspect-[2/3] object-cover rounded border border-gray-200 transition duration-500 group-hover:scale-105"
         width={640}
         height={712}
       />

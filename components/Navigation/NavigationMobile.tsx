@@ -1,25 +1,27 @@
-import { CartIcon } from '@/icons/CartIcon';
 import { CrossIcon } from '@/icons/CrossIcon';
 import { MenuIcon } from '@/icons/MenuIcon';
+import { Cart } from '../Cart/Cart';
 
 export interface NavigationMobileProps {
-  active: boolean;
-  onClick: VoidFunction;
+  onOpenMenu: VoidFunction;
+  onOpenCart: VoidFunction;
+  cartOpened: boolean;
+  menuOpened: boolean;
 }
 
 export const NavigationMobile = ({
-  active,
-  onClick,
+  onOpenMenu,
+  onOpenCart,
+  menuOpened,
+  cartOpened,
 }: NavigationMobileProps) => (
   <div className="md:hidden flex">
-    <button className="block text-gray-500 hover:text-gray-800 mx-2">
-      <CartIcon />
-    </button>
+    <Cart onOpenCart={onOpenCart} cartOpened={cartOpened} />
     <button
       className="block text-gray-500 hover:text-gray-800 mx-2"
-      onClick={onClick}
+      onClick={onOpenMenu}
     >
-      {active ? <MenuIcon /> : <CrossIcon />}
+      {menuOpened ? <MenuIcon /> : <CrossIcon />}
     </button>
   </div>
 );

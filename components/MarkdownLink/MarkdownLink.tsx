@@ -1,5 +1,5 @@
 import { isExternalLink } from '@/utils';
-import Link  from 'next/link';
+import Link from 'next/link';
 
 type MarkdownLinkProps = React.ComponentProps<typeof Link>;
 

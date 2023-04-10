@@ -7,7 +7,9 @@ export const Markdown = ({ content }: { content: MDXMarkdownContent }) => {
     <div className="prose max-w-none">
       <MDXRemote
         components={{
-          a: ({ href, ref, ...rest }) => <MarkdownLink href={href || '#'} {...rest} />,
+          a: ({ href, ref, ...rest }) => (
+            <MarkdownLink href={href || '#'} {...rest} />
+          ),
         }}
         {...content}
       />
