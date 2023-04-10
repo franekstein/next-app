@@ -1,4 +1,5 @@
 import { PAGE_URL } from '@/constants';
+import { CartItem } from '@/model/cart';
 
 export const getParam = (
   param: string | string[] | undefined,
@@ -37,3 +38,6 @@ export const isExternalLink = (url: string) => {
 
   return URL_REGEX.test(url) && !url.startsWith(PAGE_URL);
 };
+
+export const isItem = (item: CartItem | null | undefined): item is CartItem =>
+  Boolean(item);
