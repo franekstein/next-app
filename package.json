@@ -7,10 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "generate-graphql": "graphql-codegen --config codegen.ts",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
-    "@apollo/client": "^3.7.11",
+    "@apollo/client": "3.5.9",
     "@checkly/cli": "^0.4.11",
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "18.15.11",
@@ -30,11 +32,17 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "2.13.9",
     "@playwright/test": "^1.32.2",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "react-query": "^3.39.3",
-    "tailwindcss": "^3.3.1"
+    "tailwindcss": "^3.3.1",
+    "@graphql-codegen/typescript": "2.4.5",
+    "@graphql-codegen/typescript-operations": "2.3.2",
+    "@graphql-codegen/typescript-graphql-files-modules": "2.1.1",
+    "@graphql-codegen/typescript-react-apollo": "3.2.8",
+    "@graphql-codegen/introspection": "2.1.1"
   },
   "prettier": {
     "trailingComma": "es5",

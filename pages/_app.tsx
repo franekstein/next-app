@@ -4,14 +4,18 @@ import { QueryClientProvider, QueryClient } from 'react-query';
 import { DefaultSeo } from 'next-seo';
 import nextSeoConfig from '@/next-seo.config';
 import { CartContextProvider } from '@/state/cartContext';
+import { ApolloProvider } from '@apollo/client';
+import { client } from '@/graphql/config';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <QueryClientProvider client={new QueryClient()}>
-      <DefaultSeo {...nextSeoConfig} />
-      <CartContextProvider>
-        <Component {...pageProps} />
-      </CartContextProvider>
-    </QueryClientProvider>
+    <ApolloProvider client={client}>
+      <QueryClientProvider client={new QueryClient()}>
+        <DefaultSeo {...nextSeoConfig} />
+        <CartContextProvider>
+          <Component {...pageProps} />
+        </CartContextProvider>
+      </QueryClientProvider>
+    </ApolloProvider>
   );
 }

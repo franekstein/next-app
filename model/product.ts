@@ -5,7 +5,6 @@ export interface ProductEntity {
   title: string;
   price: number;
   description: string;
-  category: string;
   rating: {
     rate: number;
     count: number;

@@ -8,6 +8,7 @@ export const FooterNavigationList = () => {
     { title: 'Main', href: '/' },
     { title: 'Products CSR', href: '/products' },
     { title: 'Products SSG', href: `/products/${PRODUCTS_PER_PAGE}/0` },
+    { title: 'Products GQL', href: '/graphProducts' },
     { title: 'About', href: '/about' },
   ];
   const { pathname } = useRouter();
